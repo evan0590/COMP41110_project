@@ -1,0 +1,33 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+.vscode
+.DS_Store
+
+# django files
+/backend/src/djreact/.env
+/backend/src/djreact/__pycache__
+/backend/src/events/__pycache__
+/backend/src/events/api/__pycache__
+/backend/src/events/migrations/__pycache__
+/backend/env
+
+# dependencies
+frontend/gui/node_modules
+frontend/gui/.pnp
+frontend/gui/.pnp.js
+
+# testing
+frontend/gui/coverage
+
+# production
+frontend/gui/build
+
+# misc
+frontend/gui/.DS_Store
+frontend/gui/.env.local
+frontend/gui/.env.development.local
+frontend/gui/.env.test.local
+frontend/gui/.env.production.local
+
+frontend/gui/npm-debug.log*
+frontend/gui/yarn-debug.log*
+frontend/gui/yarn-error.log*
