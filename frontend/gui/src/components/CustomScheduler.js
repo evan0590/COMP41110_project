@@ -73,7 +73,7 @@ export default function CustomScheduler(props) {
         />
         <EditingState />
         <IntegratedEditing />
-        <WeekView startDayHour={9} endDayHour={21} />
+        <WeekView startDayHour={0} endDayHour={24} />
         <Toolbar />
         <DateNavigator />
         <TodayButton />
