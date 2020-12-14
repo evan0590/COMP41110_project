@@ -14,6 +14,8 @@ import {
   AppointmentTooltip,
   TodayButton,
 } from "@devexpress/dx-react-scheduler-material-ui";
+import ShareIcon from "@material-ui/icons/Share";
+import MoreIcon from "@material-ui/icons/MoreVert";
 import moment from "moment";
 
 const today = moment(new Date()).format("YYYY-MM-DD");
@@ -22,8 +24,14 @@ export default function CustomScheduler(props) {
   const Header = ({ appointmentData }) => (
     <AppointmentTooltip.Header
       appointmentData={appointmentData}
-      style={{ paddingTop: "15px", paddingRight: "15px" }}
+      style={{ paddingTop: "20px", paddingRight: "15px" }}
     >
+      <ShareIcon /* eslint-disable-next-line no-alert */
+        style={{ cursor: "pointer" }}
+        onClick={() => alert(JSON.stringify(appointmentData))}
+      >
+        <MoreIcon />
+      </ShareIcon>
       <ul>
         <li>
           <a href={`/events/${appointmentData.id}`}>
