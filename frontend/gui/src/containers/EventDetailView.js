@@ -36,10 +36,7 @@ class EventDetail extends React.Component {
         "Content-Type": "application/json",
         Authorization: this.props.token,
       };
-
-      axios.delete(
-        `ec2-52-49-238-63.eu-west-1.compute.amazonaws.com/api/${eventID}/`
-      );
+      axios.delete(`http://127.0.0.1:8000/api/${eventID}/`);
       this.props.history.push("/");
       this.forceUpdate();
     } else {
