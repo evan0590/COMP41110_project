@@ -14,11 +14,7 @@ class EventList extends React.Component {
         "Content-Type": "application/json",
         Authorization: newProps.token,
       };
-      // axios.get("/api/").then((res) => {
       axios.get("http://127.0.0.1:8000/api/").then((res) => {
-        // axios
-        //   .get("ec2-52-49-238-63.eu-west-1.compute.amazonaws.com/api/")
-        //   .then((res) => {
         const userSpecificEvents = [];
         for (var i = 0; i < res.data.length; i++) {
           if (String(this.props.token) === res.data[i].user_token) {

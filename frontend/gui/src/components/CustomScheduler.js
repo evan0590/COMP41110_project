@@ -41,13 +41,10 @@ export default function CustomScheduler(props) {
         <li>
           <Link
             to={`/events/${appointmentData.id}`}
-            // onClick={() => refreshPage(appointmentData.id)}
+            onClick={() => refreshPage(appointmentData.id)}
           >
             Update or delete event...
           </Link>
-          {/* <a href={`/events/${appointmentData.id}`}>
-            {"Update or delete event..."}
-          </a> */}
         </li>
       </ul>
     </AppointmentTooltip.Header>
