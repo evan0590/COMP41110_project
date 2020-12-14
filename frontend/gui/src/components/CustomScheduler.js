@@ -16,9 +16,14 @@ import {
 } from "@devexpress/dx-react-scheduler-material-ui";
 import ShareIcon from "@material-ui/icons/Share";
 import MoreIcon from "@material-ui/icons/MoreVert";
+import { Link } from "react-router-dom";
 import moment from "moment";
 
 const today = moment(new Date()).format("YYYY-MM-DD");
+
+function refreshPage(arg) {
+  window.location.href = `/events/${arg}`;
+}
 
 export default function CustomScheduler(props) {
   const Header = ({ appointmentData }) => (
@@ -34,9 +39,15 @@ export default function CustomScheduler(props) {
       </ShareIcon>
       <ul>
         <li>
-          <a href={`/events/${appointmentData.id}`}>
+          <Link
+            to={`/events/${appointmentData.id}`}
+            onClick={() => refreshPage(appointmentData.id)}
+          >
+            Update or delete event...
+          </Link>
+          {/* <a href={`/events/${appointmentData.id}`}>
             {"Update or delete event..."}
-          </a>
+          </a> */}
         </li>
       </ul>
     </AppointmentTooltip.Header>
