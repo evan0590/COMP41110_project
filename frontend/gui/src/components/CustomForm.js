@@ -37,27 +37,33 @@ class CustomForm extends React.Component {
 
     switch (requestType) {
       case "post":
-        return axios
-          .post("http://127.0.0.1:8000/api/", {
-            title: title,
-            start_date: start_date,
-            end_date: end_date,
-            location: location,
-            user_token: this.props.token,
-          })
-          .then((res) => console.log(res))
-          .catch((error) => console.error(error));
+        return (
+          axios
+            // .post("http://127.0.0.1:8000/api/", {
+            .post("/api/", {
+              title: title,
+              start_date: start_date,
+              end_date: end_date,
+              location: location,
+              user_token: this.props.token,
+            })
+            .then((res) => console.log(res))
+            .catch((error) => console.error(error))
+        );
       case "put":
-        return axios
-          .put(`http://127.0.0.1:8000/api/${eventID}/`, {
-            title: title,
-            start_date: start_date,
-            end_date: end_date,
-            location: location,
-            user_token: this.props.token,
-          })
-          .then((res) => console.log(res))
-          .catch((error) => console.error(error));
+        return (
+          axios
+            // .put(`http://127.0.0.1:8000/api/${eventID}/`, {
+            .put(`/api/${eventID}/`, {
+              title: title,
+              start_date: start_date,
+              end_date: end_date,
+              location: location,
+              user_token: this.props.token,
+            })
+            .then((res) => console.log(res))
+            .catch((error) => console.error(error))
+        );
       default:
         return null;
     }
