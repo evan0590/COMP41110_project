@@ -35,7 +35,7 @@
       "react-app/jest"
     ]
   },
-  "proxy": "http://localhost:8000",
+  "proxy": "http://ec2-3-251-80-236.eu-west-1.compute.amazonaws.com:8000",
   "browserslist": {
     "production": [
       ">0.2%",
