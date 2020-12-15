@@ -30,6 +30,8 @@ class CustomForm extends React.Component {
 
     console.log(this.state.end_date);
 
+    axios.defaults.xsrfCookieName = "csrftoken";
+    axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
     axios.defaults.headers = {
       "Content-Type": "application/json",
       Authorization: this.props.token,

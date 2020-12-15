@@ -15,6 +15,8 @@ class EventDetail extends React.Component {
 
   UNSAFE_componentWillReceiveProps(newProps) {
     if (newProps.token) {
+      axios.defaults.xsrfCookieName = "csrftoken";
+      axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
       axios.defaults.headers = {
         "Content-Type": "application/json",
         Authorization: newProps.token,
@@ -33,6 +35,8 @@ class EventDetail extends React.Component {
   handleDelete = (event) => {
     if (this.props.token !== null) {
       const eventID = this.props.match.params.eventID;
+      axios.defaults.xsrfCookieName = "csrftoken";
+      axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
       axios.defaults.headers = {
         "Content-Type": "application/json",
         Authorization: this.props.token,

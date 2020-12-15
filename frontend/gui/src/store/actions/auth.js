@@ -36,6 +36,8 @@ export const checkAuthTimeout = (expirationTime) => {
 };
 
 export const authLogin = (username, password) => {
+  axios.defaults.xsrfCookieName = "csrftoken";
+  axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
   return (dispatch) => {
     dispatch(authStart());
     axios
@@ -61,6 +63,8 @@ export const authLogin = (username, password) => {
 };
 
 export const authSignup = (username, email, password1, password2) => {
+  axios.defaults.xsrfCookieName = "csrftoken";
+  axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
   return (dispatch) => {
     dispatch(authStart());
     axios
