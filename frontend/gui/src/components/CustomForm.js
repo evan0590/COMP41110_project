@@ -19,7 +19,6 @@ class CustomForm extends React.Component {
 
   handleOnChange = (date, dateString) => {
     this.setState({ start_date: date[0].unix(), end_date: date[1].unix() });
-    console.log(date);
   };
 
   handleFormSubmit = (event, requestType, eventID) => {
@@ -27,8 +26,6 @@ class CustomForm extends React.Component {
     const start_date = this.state.start_date;
     const end_date = this.state.end_date;
     const location = event.target.elements.location.value;
-
-    console.log(this.state.end_date);
 
     axios.defaults.xsrfCookieName = "csrftoken";
     axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
@@ -39,33 +36,27 @@ class CustomForm extends React.Component {
 
     switch (requestType) {
       case "post":
-        return (
-          axios
-            // .post("http://127.0.0.1:8000/api/", {
-            .post("/api/", {
-              title: title,
-              start_date: start_date,
-              end_date: end_date,
-              location: location,
-              user_token: this.props.token,
-            })
-            .then((res) => console.log(res))
-            .catch((error) => console.error(error))
-        );
+        return axios
+          .post("/api/", {
+            title: title,
+            start_date: start_date,
+            end_date: end_date,
+            location: location,
+            user_token: this.props.token,
+          })
+          .then((res) => console.log(res))
+          .catch((error) => console.error(error));
       case "put":
-        return (
-          axios
-            // .put(`http://127.0.0.1:8000/api/${eventID}/`, {
-            .put(`/api/${eventID}/`, {
-              title: title,
-              start_date: start_date,
-              end_date: end_date,
-              location: location,
-              user_token: this.props.token,
-            })
-            .then((res) => console.log(res))
-            .catch((error) => console.error(error))
-        );
+        return axios
+          .put(`/api/${eventID}/`, {
+            title: title,
+            start_date: start_date,
+            end_date: end_date,
+            location: location,
+            user_token: this.props.token,
+          })
+          .then((res) => console.log(res))
+          .catch((error) => console.error(error));
       default:
         return null;
     }
@@ -84,11 +75,7 @@ class CustomForm extends React.Component {
           }
         >
           <Form.Item label="Title">
-            <Input
-              name="title"
-              placeholder="Put a title here"
-              console={console.log(this.props)}
-            />
+            <Input name="title" placeholder="Put a title here" />
           </Form.Item>
           <Form.Item label="Start Date">
             <RangePicker
